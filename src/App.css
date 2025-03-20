@@ -23,6 +23,17 @@
   margin-left: 0;
 }
 
+/* theme switch */
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
 /* Main Content */
 .main-content {
   margin-left: 260px;

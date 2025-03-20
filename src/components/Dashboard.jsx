@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useSelector } from "react-redux";
+import { ThemeContext } from "../context/ThemeContext";
 
 const Dashboard = () => {
+  const { theme, toggleTheme } = useContext(ThemeContext);
   const totalPatients = useSelector((state) => state.patients.patients.length);
   const totalAppointments = useSelector(
     (state) => state.appointments.appointments.length
@@ -15,8 +17,12 @@ const Dashboard = () => {
   const completedAppointments = totalAppointments - upcomingAppointments;
 
   return (
-    <div className="container mt-4">
+    <div className={`container mt-4 ${theme}`}>
       <h2>Hospital Dashboard</h2>
+      <button className="btn btn-secondary mb-3" onClick={toggleTheme}>
+        Toggle {theme === "light" ? "Dark" : "Light"} Mode
+      </button>
+
       <div className="row">
         {/* Total Patients */}
         <div className="col-md-3">
